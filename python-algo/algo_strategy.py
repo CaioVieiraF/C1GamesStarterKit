@@ -59,7 +59,7 @@ class AlgoStrategy(gamelib.AlgoCore):
         gamelib.debug_write('Performing turn {} of your custom algo strategy'.format(game_state.turn_number))
         game_state.suppress_warnings(True)  #Comment or remove this line to enable warnings.
 
-        self.starter_strategy(game_state)
+        self.hazard(game_state)
 
         game_state.submit_turn()
 
@@ -68,6 +68,19 @@ class AlgoStrategy(gamelib.AlgoCore):
     NOTE: All the methods after this point are part of the sample starter-algo
     strategy and can safely be replaced for your custom algo.
     """
+
+    def hazard(self, game_state):
+
+        firewall_pos = [[ 5, 11],[ 6, 11],[ 7, 11],[ 12, 11],[ 13, 11],[ 14, 11],[ 15, 11],[ 20, 11],[ 21, 11],[ 22, 11]]
+        info_pos = [[ 6, 7],[ 21, 7],[ 7, 6],[ 20, 6],[ 8, 5],[ 19, 5]]
+
+        for pos in firewall_pos:
+            if game_state.can_spawn(FILTER, pos):
+                game_state.attenpt_spawn(FILTER, pos)
+
+        for pos in info_pos:
+            if game_state.can_spawn(FILTER, pos):
+                game_state.attenpt_spawn(PING, pos)
 
 if __name__ == "__main__":
     algo = AlgoStrategy()
