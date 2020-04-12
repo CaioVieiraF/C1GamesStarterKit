@@ -76,11 +76,11 @@ class AlgoStrategy(gamelib.AlgoCore):
 
         for pos in firewall_pos:
             if game_state.can_spawn(FILTER, pos):
-                game_state.attenpt_spawn(FILTER, pos)
+                game_state.attempt_spawn(FILTER, pos)
 
         for pos in info_pos:
             if game_state.can_spawn(FILTER, pos):
-                game_state.attenpt_spawn(PING, pos)
+                game_state.attempt_spawn(PING, pos)
 
 if __name__ == "__main__":
     algo = AlgoStrategy()
