@@ -79,8 +79,8 @@ class AlgoStrategy(gamelib.AlgoCore):
                 game_state.attempt_spawn(FILTER, pos)
 
         for pos in info_pos:
-            if game_state.can_spawn(FILTER, pos):
-                game_state.attempt_spawn(PING, pos)
+            if game_state.can_spawn(SCRAMBLER, pos):
+                game_state.attempt_spawn(SCRAMBLER, pos)
 
 if __name__ == "__main__":
     algo = AlgoStrategy()
